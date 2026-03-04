@@ -1,303 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>凡構國際 | 露營車太陽能系統改裝專家</title>
-    <meta name="description" content="專業露營車太陽能系統改裝 - 福斯加州號、賓士露營車首選">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1a3d34;
-            --primary-light: #2d5a4a;
-            --accent: #d4a853;
-            --accent-light: #f0d78c;
-            --bg-cream: #fdfbf7;
-            --bg-warm: #f8f5f0;
-            --text-dark: #2c2c2c;
-            --text-muted: #6b6b6b;
-            --white: #ffffff;
-            --shadow-soft: 0 4px 30px rgba(0,0,0,0.08);
-            --shadow-hover: 0 20px 50px rgba(45,90,74,0.15);
-            --gradient-luxury: linear-gradient(135deg, #1a3d34 0%, #2d5a4a 50%, #3d6b5a 100%);
-            --gradient-gold: linear-gradient(135deg, #d4a853 0%, #f0d78c 100%);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg-cream); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
-        .bg-pattern { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; opacity: 0.5; background-image: radial-gradient(circle at 20% 80%, rgba(45,90,74,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(212,168,83,0.08) 0%, transparent 50%); }
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,168,83,0.2); transition: all 0.3s ease; }
-        header.scrolled { background: rgba(255,255,255,0.95); box-shadow: var(--shadow-soft); }
-        nav { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { width: 48px; height: 48px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
-        .logo-text span { color: var(--accent); }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; position: relative; padding: 0.5rem 0; transition: color 0.3s; }
-        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gradient-gold); transition: width 0.3s ease; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-links a:hover::after { width: 100%; }
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 2rem 80px; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(212,168,83,0.15) 0%, transparent 60%); animation: float 8s ease-in-out infinite; }
-        .hero::after { content: ''; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(45,90,74,0.1) 0%, transparent 60%); animation: float 10s ease-in-out infinite reverse; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
-        .hero-content { text-align: center; max-width: 800px; position: relative; z-index: 1; }
-        .hero-badge { display: inline-block; background: var(--white); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; box-shadow: var(--shadow-soft); border: 1px solid rgba(212,168,83,0.3); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.2; }
-        .hero h1 span { background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; font-family: inherit; }
-        .btn-primary { background: var(--gradient-luxury); color: var(--white); box-shadow: 0 4px 20px rgba(45,90,74,0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(45,90,74,0.4); }
-        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--primary); }
-        .btn-secondary:hover { background: var(--primary); color: var(--white); }
-        section { padding: 100px 2rem; max-width: 1400px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-tag { display: inline-block; background: var(--gradient-gold); color: var(--primary); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 1rem; }
-        .section-desc { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .service-card { background: var(--white); border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-soft); transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-gold); transform: scaleX(0); transition: transform 0.4s ease; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-icon { width: 70px; height: 70px; background: var(--bg-warm); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .service-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
-        .stats { background: var(--gradient-luxury); padding: 80px 2rem; margin-top: 50px; }
-        .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
-        .stat-item { color: var(--white); }
-        .stat-number { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .stat-label { opacity: 0.9; font-size: 0.95rem; }
-        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-        .examples { background: var(--white); }
-        .examples-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
-        .example-card { background: var(--bg-cream); border-radius: 20px; overflow: hidden; transition: all 0.4s ease; }
-        .example-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
-        .example-image { height: 220px; background: linear-gradient(135deg, var(--primary-light), var(--accent)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-        .example-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .example-card:hover .example-image img { transform: scale(1.1); }
-        .example-content { padding: 1.5rem; }
-        .example-content h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .example-content p { color: var(--text-muted); font-size: 0.9rem; }
-        .example-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        .tag { background: var(--bg-warm); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.75rem; font-weight: 500; }
-        .process { position: relative; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .process-step { text-align: center; padding: 2rem; position: relative; }
-        .step-icon { width: 80px; height: 80px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.5rem; box-shadow: var(--shadow-soft); position: relative; z-index: 1; }
-        .process-step::before { content: ''; position: absolute; top: 40px; right: -50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); z-index: 0; }
-        .process-step:last-child::before { display: none; }
-        .step-number { position: absolute; top: -10px; right: -10px; width: 30px; height: 30px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; }
-        .process-step h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .process-step p { color: var(--text-muted); font-size: 0.9rem; }
-        .contact { background: var(--bg-warm); text-align: center; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .contact-card { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: var(--shadow-soft); transition: all 0.3s ease; }
-        .contact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-        .contact-icon { width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem; }
-        .contact-card h4 { color: var(--primary); margin-bottom: 0.5rem; }
-        .contact-card a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        .contact-card a:hover { color: var(--accent); }
-        .qr-section { margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 20px; display: inline-block; box-shadow: var(--shadow-soft); }
-        .qr-section img { width: 150px; height: 150px; border-radius: 12px; }
-        .qr-section p { margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted); }
-        .form-section { max-width: 600px; margin: 3rem auto 0; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--text-dark); }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem 1.25rem; border: 2px solid #e8e4de; border-radius: 12px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s, box-shadow 0.3s; background: var(--white); }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(212,168,83,0.1); }
-        .form-group textarea { min-height: 120px; resize: vertical; }
-        .videos-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .tab-btn { padding: 0.75rem 1.5rem; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 25px; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; }
-        .tab-btn:hover, .tab-btn.active { background: var(--primary); color: var(--white); }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
-        .video-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s ease; }
-        .video-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-        .video-thumbnail { height: 200px; background: var(--primary); display: flex; align-items: center; justify-content: center; }
-        .video-thumbnail a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: var(--white); font-size: 3rem; text-decoration: none; }
-        .video-info { padding: 1.25rem; }
-        .video-info h4 { color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem; }
-        .video-info p { color: var(--text-muted); font-size: 0.85rem; }
-        footer { background: var(--primary); color: var(--white); padding: 4rem 2rem 2rem; text-align: center; }
-        footer .logo { justify-content: center; margin-bottom: 2rem; }
-        footer .logo-text { color: var(--white); }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.9rem; opacity: 0.7; }
-        @media (max-width: 768px) { .nav-links { display: none; } .hero { padding: 100px 1.5rem 60px; } .hero-buttons { flex-direction: column; } .btn { width: 100%; justify-content: center; } section { padding: 60px 1.5rem; } .process-step::before { display: none; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate { animation: fadeInUp 0.6s ease forwards; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>憂娘駕駛 Outdoor｜官方網站</title>
+  <style>
+    :root{--bg:#0b1220;--card:#121b2e;--pri:#3b82f6;--txt:#e5edff;--muted:#9db2d8}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#09101d,#0e1628);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif}
+    .wrap{max-width:1040px;margin:0 auto;padding:20px}
+    .hero{padding:40px 0 20px}
+    h1{font-size:clamp(30px,6vw,56px);margin:0 0 12px}
+    p{line-height:1.6;color:var(--muted)}
+    .btn{display:inline-block;background:var(--pri);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:700}
+    .card{background:var(--card);border:1px solid #22304d;border-radius:16px;padding:14px}
+    .video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:14px}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px}
+    .item{background:#0f1a30;border:1px solid #22304d;padding:14px;border-radius:12px}
+    footer{padding:30px 0;color:#8ea3c7;text-align:center;font-size:13px}
+  </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <header id="header">
-        <nav>
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="凡構國際" class="logo-img">
-                <div class="logo-text">VANGO <span>凡構</span></div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">服務項目</a></li>
-                <li><a href="#examples">作品案例</a></li>
-                <li><a href="#process">施工流程</a></li>
-                <li><a href="#videos">影片分享</a></li>
-                <li><a href="#contact">聯絡我們</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="wrap">
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge animate">🏕️ 露營車改裝專家</div>
-            <h1 class="animate delay-1">讓您的露營車<br><span>擁有无限电力</span></h1>
-            <p class="animate delay-2">專業太陽能系統、鋰電池、配電系統改裝<br>福斯加州號、賓士露營車首選</p>
-            <div class="hero-buttons animate delay-3">
-                <a href="#contact" class="btn btn-primary"><i class="fas fa-phone"></i> 立即諮詢</a>
-                <a href="#examples" class="btn btn-secondary"><i class="fas fa-images"></i> 查看作品</a>
-            </div>
-        </div>
+      <h1>憂娘駕駛 Outdoor</h1>
+      <p>台灣露營車與停車冷氣技術分享。這是公司官方介紹頁，重點展示最新 YouTube 影片與核心服務。</p>
+      <a class="btn" href="https://youtu.be/qd71u-h_54M?si=VyXTtdIzbVvesdiv" target="_blank" rel="noopener">觀看最新影片</a>
     </section>
-    <div class="stats">
-        <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">改裝車輛</div></div>
-            <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">年經驗</div></div>
-            <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">滿意度</div></div>
-            <div class="stat-item"><div class="stat-number">24h</div><div class="stat-label">快速回覆</div></div>
-        </div>
-    </div>
-    <section id="services">
-        <div class="section-header"><div class="section-tag">Services</div><h2 class="section-title">我們的服務</h2><p class="section-desc">專業露營車電力系統改裝，讓您享受自在的露營生活</p></div>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon">☀️</div><h3>太陽能系統</h3><p>200W-600W 高效太陽能板，搭配MPPT控制器，最佳發電效率</p></div>
-            <div class="service-card"><div class="service-icon">🔋</div><h3>鋰電池</h3><p>磷酸鋰鐵電池，壽命長、安全性高，支援深循環放電</p></div>
-            <div class="service-card"><div class="service-icon">⚡</div><h3>配電系統</h3><p>專業線路規劃，安全配電箱，保護您的電器設備</p></div>
-            <div class="service-card"><div class="service-icon">🔌</div><h3>Inverter</h3><p>正弦波逆變器，穩定輸出220V，支援各種電器</p></div>
-            <div class="service-card"><div class="service-icon">💡</div><h3>LED 照明</h3><p>節能LED燈組，多段亮度可調，營造舒適車內氛圍</p></div>
-            <div class="service-card"><div class="service-icon">📱</div><h3>USB 充電座</h3><p>快充USB插座，支援手機、平板等多設備充電</p></div>
-        </div>
+
+    <section class="card">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/qd71u-h_54M" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p style="margin:12px 4px 2px">最新技術影片：駐車冷氣（靜音、涼爽、無痕安裝）與露營車實車案例。</p>
     </section>
-    <section id="examples" class="examples">
-        <div class="section-header"><div class="section-tag">Projects</div><h2 class="section-title">作品案例</h2><p class="section-desc">累積數百台露營車改裝經驗，品質有保證</p></div>
-        <div class="examples-grid" id="examplesGrid"></div>
+
+    <section class="grid">
+      <div class="item"><h3>技術重點</h3><p>緩啟動壓縮機、低噪音體驗、長時間舒適降溫。</p></div>
+      <div class="item"><h3>車型案例</h3><p>VW T6.1 California Ocean、賓士 Marco Polo 等露營車系。</p></div>
+      <div class="item"><h3>服務內容</h3><p>露營車相關改裝建議、停車冷氣方案、實戰測試分享。</p></div>
     </section>
-    <section id="process" class="process">
-        <div class="section-header"><div class="section-tag">Process</div><h2 class="section-title">施工流程</h2><p class="section-desc">專業、透明、高效的施工流程</p></div>
-        <div class="process-grid">
-            <div class="process-step"><div class="step-icon"><i class="fas fa-phone" style="color: var(--primary);"></i><span class="step-number">1</span></div><h4>電話諮詢</h4><p>了解您的需求，提供專業建議</p></div>
-            <div class="process-step"><div class="step-icon"><i class="fas fa-car" style="color: var(--primary);"></i><span class="step-number">2</span></div><h4>到府評估</h4><p>專人到府查看車輛，規劃最合適方案</p></div>
-            <div class="process-step"><div class="step-icon"><i class="fas fa-file-contract" style="color: var(--primary);"></i><span class="step-number">3</span></div><h4>報價確認</h4><p>提供詳細報價單，透明定價</p></div>
-            <div class="process-step"><div class="step-icon"><i class="fas fa-tools" style="color: var(--primary);"></i><span class="step-number">4</span></div><h4>專業施工</h4><p>經驗技師施工，品質嚴格把關</p></div>
-        </div>
-    </section>
-    <section id="videos">
-        <div class="section-header"><div class="section-tag">Videos</div><h2 class="section-title">影片分享</h2><p class="section-desc">施工過程與成品展示</p></div>
-        <div class="videos-tabs">
-            <button class="tab-btn active" onclick="filterVideos('all')">全部影片</button>
-            <button class="tab-btn" onclick="filterVideos('solar')">太陽能</button>
-            <button class="tab-btn" onclick="filterVideos('battery')">鋰電池</button>
-            <button class="tab-btn" onclick="filterVideos('power')">配電系統</button>
-        </div>
-        <div class="video-grid" id="videoGrid"></div>
-    </section>
-    <section id="contact" class="contact">
-        <div class="section-header"><div class="section-tag">Contact</div><h2 class="section-title">聯絡我們</h2><p class="section-desc">立即聯繫，開啟您的露營車電力升級之旅</p></div>
-        <div class="contact-grid">
-            <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone"></i></div><h4>電話</h4><a href="tel:0912678660">0912-678-660</a></div>
-            <div class="contact-card"><div class="contact-icon"><i class="fab fa-line"></i></div><h4>LINE</h4><a href="https://line.me/ti/p/@0912678660" target="_blank">@0912678660</a></div>
-            <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h4>Email</h4><a href="mailto:service@vangocar.com">service@vangocar.com</a></div>
-        </div>
-        <div class="qr-section"><img src="line-qrcode.jpg" alt="LINE QR Code"><p>LINE 好友</p></div>
-        <div class="form-section">
-            <form action="https://formspree.io/f/xdalzjbj" method="POST">
-                <div class="form-group"><label>姓名</label><input type="text" name="name" required placeholder="請輸入您的姓名"></div>
-                <div class="form-group"><label>電話</label><input type="tel" name="phone" required placeholder="請輸入您的電話"></div>
-                <div class="form-group"><label>LINE ID</label><input type="text" name="line" placeholder="請輸入您的 LINE ID"></div>
-                <div class="form-group"><label>車輛類型</label><input type="text" name="vehicle" placeholder="例如：福斯加州號、賓士露營車"></div>
-                <div class="form-group"><label>需求說明</label><textarea name="message" placeholder="請描述您的需求..."></textarea></div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> 送出諮詢</button>
-            </form>
-        </div>
-    </section>
+
     <footer>
-        <div class="logo"><img src="images/logo.png" alt="凡構國際" class="logo-img"><div class="logo-text">VANGO <span>凡構</span></div></div>
-        <div class="footer-links">
-            <a href="#services">服務項目</a>
-            <a href="#examples">作品案例</a>
-            <a href="#process">施工流程</a>
-            <a href="#contact">聯絡我們</a>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 凡構國際實業社 | 露營車太陽能系統改裝專家</p>
-            <p style="margin-top: 0.5rem;">📞 0912-678-660 | LINE: @0912678660</p>
-        </div>
+      © 2026 憂娘駕駛 Outdoor · YouTube: <a href="https://www.youtube.com/@taiwango2020" target="_blank" rel="noopener" style="color:#9ec0ff">@taiwango2020</a>
     </footer>
-    <script>
-        // 施工照片
-        const examples = [
-            { title: '福斯加州號 - 太陽能系統', desc: '400W 太陽能板 + 200AH 鋰電池', tags: ['太陽能', '鋰電池'], img: 'images/施工1.jpg' },
-            { title: '賓士露營車 - 配電系統', desc: '專業配電箱 + USB充電座', tags: ['配電系統', 'USB'], img: 'images/施工2.jpg' },
-            { title: 'Toyota Hiace - 電力升級', desc: '600W 太陽能 + 300AH鋰電', tags: ['太陽能', '鋰電池'], img: 'images/施工3.jpg' },
-            { title: '福斯加州號 - 鋰電池', desc: '200AH 磷酸鋰鐵電池', tags: ['鋰電池'], img: 'images/施工4.jpg' },
-            { title: '露營車 - Inverter安裝', desc: '2000W 正弦波逆變器', tags: ['Inverter'], img: 'images/施工5.jpg' },
-            { title: '賓士露營車 - 太陽能', desc: '500W 太陽能系統', tags: ['太陽能'], img: 'images/施工6.jpg' },
-        ];
-        
-        const examplesGrid = document.getElementById('examplesGrid');
-        examples.forEach((ex, i) => {
-            examplesGrid.innerHTML += `
-                <div class="example-card">
-                    <div class="example-image">
-                        <img src="${ex.img}" alt="${ex.title}" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;\\'>🏕️</div>'">
-                    </div>
-                    <div class="example-content">
-                        <h4>${ex.title}</h4>
-                        <p>${ex.desc}</p>
-                        <div class="example-tags">${ex.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-                    </div>
-                </div>`;
-        });
-        
-        // 影片
-        const videos = [
-            { title: '太陽能系統安裝演示', category: 'solar', url: 'https://youtu.be/example1' },
-            { title: '鋰電池系統介紹', category: 'battery', url: 'https://youtu.be/example2' },
-            { title: '配電系統專業施工', category: 'power', url: 'https://youtu.be/example3' },
-            { title: '400W 太陽能實測', category: 'solar', url: 'https://youtu.be/example4' },
-            { title: 'Inverter 安裝教學', category: 'power', url: 'https://youtu.be/example5' },
-        ];
-        
-        function renderVideos(filter = 'all') {
-            const grid = document.getElementById('videoGrid');
-            grid.innerHTML = videos.filter(v => filter === 'all' || v.category === filter).map(v => `
-                <div class="video-card">
-                    <div class="video-thumbnail"><a href="${v.url}" target="_blank"><i class="fab fa-youtube"></i></a></div>
-                    <div class="video-info"><h4>${v.title}</h4><p>點擊觀看</p></div>
-                </div>
-            `).join('');
-        }
-        
-        function filterVideos(category) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            renderVideos(category);
-        }
-        
-        renderVideos();
-        
-        // Header 滾動效果
-        window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
-        });
-    </script>
+  </div>
 </body>
 </html>
