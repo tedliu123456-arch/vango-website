@@ -3,54 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>憂娘駕駛 Outdoor｜官方網站</title>
+  <title>販購國際實驗社｜官方網站</title>
   <style>
-    :root{--bg:#0b1220;--card:#121b2e;--pri:#3b82f6;--txt:#e5edff;--muted:#9db2d8}
-    *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#09101d,#0e1628);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif}
-    .wrap{max-width:1040px;margin:0 auto;padding:20px}
-    .hero{padding:40px 0 20px}
+    :root{
+      --bg:#0b1220;--card:#121b2e;--pri:#3b82f6;--txt:#e5edff;--muted:#9db2d8;--line:#22304d;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#09101d,#0e1628);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif}
+    .wrap{max-width:1080px;margin:0 auto;padding:20px}
+    .hero{padding:38px 0 18px}
     h1{font-size:clamp(30px,6vw,56px);margin:0 0 12px}
-    p{line-height:1.6;color:var(--muted)}
-    .btn{display:inline-block;background:var(--pri);color:#fff;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:700}
-    .card{background:var(--card);border:1px solid #22304d;border-radius:16px;padding:14px}
-    .video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:14px}
+    h2{margin:0 0 10px;font-size:clamp(22px,3.6vw,32px)}
+    p{line-height:1.7;color:var(--muted);margin:8px 0}
+    .btn{display:inline-block;background:var(--pri);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:700}
+    .btn.ghost{background:transparent;border:1px solid #3c4f73}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:14px}
+    .item{background:#0f1a30;border:1px solid var(--line);padding:14px;border-radius:12px}
+    .tag{display:inline-block;padding:4px 10px;border:1px solid #37548a;border-radius:999px;font-size:12px;color:#c9dcff;margin-right:6px;margin-top:6px}
+    .video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:14px;background:#000}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px}
-    .item{background:#0f1a30;border:1px solid #22304d;padding:14px;border-radius:12px}
-    footer{padding:30px 0;color:#8ea3c7;text-align:center;font-size:13px}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    footer{padding:28px 0;color:#8ea3c7;text-align:center;font-size:13px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <h1>憂娘駕駛 Outdoor</h1>
-      <p>台灣露營車與停車冷氣技術分享。這是公司官方介紹頁，重點展示最新 YouTube 影片與核心服務。</p>
-      <a class="btn" href="https://youtu.be/qd71u-h_54M?si=VyXTtdIzbVvesdiv" target="_blank" rel="noopener">觀看影片清單</a>
-    </section>
-
-    <section class="grid" style="margin-top:6px">
-      <div class="card">
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/qd71u-h_54M" title="YouTube video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <p style="margin:12px 4px 2px">影片 1：駐車冷氣（靜音、涼爽、無痕安裝）與露營車實車案例。</p>
+      <h1>販購國際實驗社</h1>
+      <p>我們專注於露營車與駐車冷氣實戰應用，提供技術分享、車型案例、與實際使用情境解說，協助車友找到更穩定、舒適、可長期使用的方案。</p>
+      <div>
+        <span class="tag">露營車</span>
+        <span class="tag">駐車冷氣</span>
+        <span class="tag">改裝案例</span>
+        <span class="tag">實測分享</span>
       </div>
-      <div class="card">
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/S_GW8QlLVOE" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <p style="margin:12px 4px 2px">影片 2：公司最新影片（你剛提供的連結）。</p>
+      <div class="cta">
+        <a class="btn" href="https://www.youtube.com/@taiwango2020" target="_blank" rel="noopener">YouTube 頻道</a>
+        <a class="btn ghost" href="tel:0912678660">LINE/電話：0912678660</a>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="item"><h3>技術重點</h3><p>緩啟動壓縮機、低噪音體驗、長時間舒適降溫。</p></div>
-      <div class="item"><h3>車型案例</h3><p>VW T6.1 California Ocean、賓士 Marco Polo 等露營車系。</p></div>
-      <div class="item"><h3>服務內容</h3><p>露營車相關改裝建議、停車冷氣方案、實戰測試分享。</p></div>
+    <section class="card" style="margin-top:8px">
+      <h2>公司概況</h2>
+      <p>販購國際實驗社以「可實際落地的露營車體驗」為核心，從車內舒適度、耗電管理、設備噪音、到長時間停駐場景，持續以影片與案例分享實測結果。</p>
+      <p>目前內容主軸聚焦於駐車冷氣、露營車改裝應用、與不同車型搭配建議，讓使用者在選配前就能清楚理解方案差異。</p>
+    </section>
+
+    <section class="grid" style="margin-top:14px">
+      <div class="item">
+        <h3>技術重點</h3>
+        <p>駐車冷氣效率、低噪音體驗、長時間使用穩定度。</p>
+      </div>
+      <div class="item">
+        <h3>車型案例</h3>
+        <p>露營車車型實測與改裝建議（含 Sunlight 類型露營車情境）。</p>
+      </div>
+      <div class="item">
+        <h3>服務方向</h3>
+        <p>技術分享、案例整理、與導入前評估建議。</p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>網站製作建議（你目前這版）</h2>
+      <p>1) 首屏放公司名稱 + 聯絡方式（建立信任）</p>
+      <p>2) 中段放公司概況 + 三大核心能力（讓訪客快速理解）</p>
+      <p>3) 底部放影片區（讓內容沉澱，導流到頻道）</p>
+      <p>4) 每次更新只做小步快跑：文案/案例/影片逐步補齊</p>
+    </section>
+
+    <section style="margin-top:16px">
+      <h2>影片分享</h2>
+      <div class="grid" style="margin-top:8px">
+        <div class="card">
+          <div class="video">
+            <iframe src="https://www.youtube.com/embed/qd71u-h_54M" title="YouTube video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p style="margin:12px 4px 2px">影片 1：駐車冷氣（靜音、涼爽、無痕安裝）與露營車實車案例。</p>
+        </div>
+        <div class="card">
+          <div class="video">
+            <iframe src="https://www.youtube.com/embed/S_GW8QlLVOE" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p style="margin:12px 4px 2px">影片 2：最新分享內容與安裝實務觀察。</p>
+        </div>
+      </div>
     </section>
 
     <footer>
-      © 2026 憂娘駕駛 Outdoor · YouTube: <a href="https://www.youtube.com/@taiwango2020" target="_blank" rel="noopener" style="color:#9ec0ff">@taiwango2020</a>
+      © 2026 販購國際實驗社 · LINE/電話：0912678660 · YouTube: <a href="https://www.youtube.com/@taiwango2020" target="_blank" rel="noopener" style="color:#9ec0ff">@taiwango2020</a>
     </footer>
   </div>
 </body>
