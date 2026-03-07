@@ -20,6 +20,10 @@
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
     .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:14px}
     .item{background:#0f1a30;border:1px solid var(--line);padding:14px;border-radius:12px}
+    .model-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:12px}
+    .model-card{background:#0f1a30;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .model-card img{width:100%;height:150px;object-fit:cover;background:#0b1322}
+    .model-card .meta{padding:10px 12px}
     .tag{display:inline-block;padding:4px 10px;border:1px solid #37548a;border-radius:999px;font-size:12px;color:#c9dcff;margin-right:6px;margin-top:6px}
     .video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:14px;background:#000}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -48,6 +52,35 @@
       <h2>公司概況</h2>
       <p>販購國際實驗社以「可實際落地的露營車體驗」為核心，從車內舒適度、耗電管理、設備噪音、到長時間停駐場景，持續以影片與案例分享實測結果。</p>
       <p>目前內容主軸聚焦於駐車冷氣、露營車改裝應用、與不同車型搭配建議，讓使用者在選配前就能清楚理解方案差異。</p>
+    </section>
+
+
+    <section class="card" style="margin-top:14px">
+      <h2>Sunlight 車型案例</h2>
+      <p>目前重點車型：Cliff 600、Cliff 600 RT、Cliff 601、T67S、T58。</p>
+      <div class="model-grid">
+        <article class="model-card">
+          <img src="https://www.sunlight.de/wp-content/webp-express/webp-images/uploads/2024/01/Cliff-602-Adventure-2024_0466_96dpi.jpg.webp" alt="Sunlight Cliff 600" />
+          <div class="meta"><b>Cliff 600</b></div>
+        </article>
+        <article class="model-card">
+          <img src="https://www.sunlight.de/wp-content/webp-express/webp-images/uploads/2024/01/Cliff-602-Adventure-2024_0142_96dpi-e1733313219105.jpg.webp" alt="Sunlight Cliff 600 RT" />
+          <div class="meta"><b>Cliff 600 RT</b></div>
+        </article>
+        <article class="model-card">
+          <img src="https://www.sunlight.de/wp-content/webp-express/webp-images/uploads/2024/07/SUNLIGHT_CLIFF_X_2024-0104.jpg.webp" alt="Sunlight Cliff 601" />
+          <div class="meta"><b>Cliff 601</b></div>
+        </article>
+        <article class="model-card">
+          <img src="https://www.sunlight.de/wp-content/webp-express/webp-images/uploads/2024/08/SL_Motorhomes_T67.png.webp" alt="Sunlight T67S" />
+          <div class="meta"><b>T67S</b></div>
+        </article>
+        <article class="model-card">
+          <img src="https://www.sunlight.de/wp-content/webp-express/webp-images/uploads/2025/09/02_T-58-2024-0259_96dpi.jpg.webp" alt="Sunlight T58" />
+          <div class="meta"><b>T58</b></div>
+        </article>
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:#8ea3c7">圖片來源：Sunlight 官方網站（展示用途）。</p>
     </section>
 
     <section class="grid" style="margin-top:14px">
