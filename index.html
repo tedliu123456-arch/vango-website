@@ -22,6 +22,8 @@
     .item{background:#0f1a30;border:1px solid var(--line);padding:14px;border-radius:12px}
     .model-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:12px}
     .model-card{background:#0f1a30;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .model-card.clickable{cursor:pointer}
+    .model-card.clickable:hover{transform:translateY(-2px);transition:transform .15s ease;box-shadow:0 8px 16px rgba(0,0,0,.25)}
     .model-card img{width:100%;height:150px;object-fit:cover;background:#0b1322}
     .model-card .meta{padding:10px 12px}
     .tag{display:inline-block;padding:4px 10px;border:1px solid #37548a;border-radius:999px;font-size:12px;color:#c9dcff;margin-right:6px;margin-top:6px}
@@ -31,6 +33,12 @@
     .line-qr-wrap{display:flex;align-items:center;gap:12px;margin-top:14px;padding:10px;border:1px solid var(--line);border-radius:12px;background:#0f1a30}
     .line-qr{width:120px;height:120px;border-radius:10px;border:1px solid #3c4f73;background:#fff;object-fit:cover}
     footer{padding:28px 0;color:#8ea3c7;text-align:center;font-size:13px}
+    .gallery-modal{position:fixed;inset:0;background:rgba(3,8,20,.82);display:none;align-items:center;justify-content:center;z-index:9999;padding:18px}
+    .gallery-sheet{width:min(980px,95vw);max-height:92vh;overflow:auto;background:#0f1a30;border:1px solid #2a3a5d;border-radius:14px;padding:14px}
+    .gallery-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+    .gallery-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .gallery-grid img{width:100%;height:200px;object-fit:cover;border-radius:10px;border:1px solid #3c4f73;background:#0b1322}
+
   </style>
 </head>
 <body>
@@ -69,7 +77,7 @@
       <h2>Sunlight 車型案例</h2>
       <p>目前重點車型：600 RT、601、T67S、T58。</p>
       <div class="model-grid">
-        <article class="model-card">
+        <article class="model-card clickable" onclick="openModelGallery('600rt')">
           <img src="./assets/sunlight-600rt.jpg" alt="Sunlight 600 RT" />
           <div class="meta"><b>600 RT</b></div>
         </article>
@@ -125,5 +133,44 @@
       © 2026 凡構國際實業社
     </footer>
   </div>
+
+
+  <div id="modelGalleryModal" class="gallery-modal" onclick="closeModelGallery(event)">
+    <div class="gallery-sheet" onclick="event.stopPropagation()">
+      <div class="gallery-head">
+        <h3 id="modelGalleryTitle" style="margin:0">車型照片</h3>
+        <button class="btn ghost" onclick="closeModelGallery()">關閉</button>
+      </div>
+      <div id="modelGalleryGrid" class="gallery-grid"></div>
+    </div>
+  </div>
+
+  <script>
+    const MODEL_GALLERIES = {
+      '600rt': {
+        title: 'Sunlight 600 RT',
+        images: [
+          './assets/sunlight-600rt.jpg',
+          './assets/sunlight-600rt-1.jpg',
+          './assets/sunlight-600rt-2.jpg',
+          './assets/sunlight-600rt-3.jpg'
+        ]
+      }
+    };
+
+    function openModelGallery(modelKey){
+      const cfg = MODEL_GALLERIES[modelKey];
+      if(!cfg) return;
+      document.getElementById('modelGalleryTitle').textContent = cfg.title + '｜照片';
+      document.getElementById('modelGalleryGrid').innerHTML = cfg.images.map((u,i)=>`<img src="${u}" alt="${cfg.title}-${i+1}"/>`).join('');
+      document.getElementById('modelGalleryModal').style.display='flex';
+    }
+
+    function closeModelGallery(e){
+      if(e && e.target && e.target.id !== 'modelGalleryModal') return;
+      document.getElementById('modelGalleryModal').style.display='none';
+    }
+  </script>
+
 </body>
 </html>
