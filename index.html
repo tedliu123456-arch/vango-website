@@ -105,9 +105,9 @@
       <h2>Canifornia 加州號｜Beach</h2>
       <p>Beach 車型展示（封面）。</p>
       <div class="model-grid" style="grid-template-columns:minmax(0,1fr)">
-        <article class="model-card">
+        <article class="model-card clickable" onclick="openModelGallery('beach')">
           <img src="./assets/canifornia-beach-cover.jpg" alt="Canifornia Beach" />
-          <div class="meta"><b>Beach（封面）</b></div>
+          <div class="meta"><b>Beach（點擊看照片）</b></div>
         </article>
       </div>
     </section>
@@ -222,6 +222,13 @@
           './assets/sunlight-601-10.jpg',
           './assets/sunlight-601-11.jpg',
           './assets/sunlight-601-12.jpg'
+        ]
+      },
+      'beach': {
+        title: 'Canifornia Beach',
+        images: [
+          './assets/canifornia-beach-cover.jpg',
+          './assets/canifornia-beach-2.jpg'
         ]
       }
     };
